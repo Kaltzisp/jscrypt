@@ -1,0 +1,57 @@
+* {
+    margin: auto;
+    color: white;
+    background-color: black;
+    font-family: "Monaco", "Lucida Console", monospace;
+    user-select: none;
+    text-align: center;
+}
+
+.field {
+    display: block;
+    border-width: 2px;
+    border-radius: 4px;
+}
+
+#keyForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+#keyLabel {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+#submit {
+    display: none;
+}
+
+#serviceLabel {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: rgb(200, 255, 200)
+}
+
+#hiddenKey {
+    color: rgb(200, 0, 0);
+}
+
+#failText {
+    color: rgb(255, 0, 0);
+}
+
+#editOp {
+    color: rgb(0,100,255)
+}
+
+#delOp {
+    color: rgb(255, 70, 70);
+}

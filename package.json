@@ -1,0 +1,17 @@
+{
+  "name": "jscrypt",
+  "version": "1.0.0",
+  "description": "Simple encryption tool.",
+  "main": "app.js",
+  "author": "Linke",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "electron-packager": "latest"
+  },
+  "dependencies": {
+    "crypto-js": "latest",
+    "electron": "latest"
+  }
+}

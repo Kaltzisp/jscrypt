@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+        <title>JSCrypt</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <form id="keyForm">
+            <span id="serviceLabel">Logged in to JSCrypt</span>
+            <span id="hiddenKey"></span>
+            <div id="infoText" autofocus>
+                <span>v = view credentials</span><br>
+                <span>n = add credentials</span><br><br>
+                <span>k = re-enter key</span><br>
+                <span>q = quit JSCrypt</span>
+            </div>
+            <input id="submit" type="submit">
+        </form>
+        <script src="scripts/access.js"></script>
+    </body>
+</html>

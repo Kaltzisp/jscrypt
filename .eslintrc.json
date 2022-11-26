@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "comma-dangle": [2, "never"],
+        "consistent-return": 0,
+        "func-names": 0,
+        "guard-for-in": 0,
+        "indent": [2, 4, { "SwitchCase": 1 }],
+        "linebreak-style": 0,
+        "max-classes-per-file": 0,
+        "max-len": 0,
+        "no-await-in-loop": 0,
+        "no-console": 0,
+        "no-eval": 0,
+        "no-param-reassign": 0,
+        "no-plusplus": [2, {"allowForLoopAfterthoughts": true}],
+        "no-restricted-globals": 0,
+        "no-restricted-syntax": 0,
+        "prefer-destructuring": 0,
+        "quotes": [2, "double"],
+        "quote-props": [2, "consistent-as-needed"],
+        "space-before-function-paren": [2, "never"]
+    }
+}
