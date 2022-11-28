@@ -61,13 +61,15 @@ function newAccount(edit, preset) {
         account.focus();
     }
     document.getElementById("keyForm").onsubmit = () => {
-        window.api.send("credentials", {
-            key: secretKey,
-            account: account.value,
-            user: user.value,
-            pass: pass.value,
-            edit
-        });
+        if (account.value.length && user.value && pass.value) {
+            window.api.send("credentials", {
+                key: secretKey,
+                account: account.value,
+                user: user.value,
+                pass: pass.value,
+                edit
+            });
+        }
         return false;
     };
 }
@@ -91,11 +93,19 @@ function viewAccount() {
 
 function deleteAccount(account) {
     unsetOptions();
-    serviceLabel.innerText = "Account removed";
-    infoText.innerHTML = "";
-    window.api.send("delAccount", account);
-    document.onkeydown = () => {
-        window.api.send("secretKey", secretKey);
+    serviceLabel.innerText = "Remove account?";
+    infoText.innerHTML = "Press d to confirm deletion.";
+    document.onkeydown = (e) => {
+        if (e.code === "KeyD") {
+            window.api.send("delAccount", account);
+            serviceLabel.innerText = "Account removed";
+            infoText.innerHTML = "";
+            document.onkeydown = () => {
+                window.api.send("secretKey", secretKey);
+            };
+        } else {
+            window.api.send("secretKey", secretKey);
+        }
     };
 }
 
