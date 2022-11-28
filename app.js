@@ -21,6 +21,7 @@ app.whenReady().then(() => {
     window.loadFile("index.html");
 
     io.on("secretKey", (event, data) => {
+        electron.clipboard.writeText("", "selection");
         window.loadFile("libs/access.html").then(() => {
             window.webContents.send("secretKey", data);
         });
@@ -30,7 +31,6 @@ app.whenReady().then(() => {
         if (fs.existsSync(`${storePath}/${data.account}.json`) && !data.edit) {
             return window.webContents.send("error", "Credentials already exist.");
         }
-        electron.clipboard.writeText(data.pass, "selection");
         const usalt = cipher.lib.WordArray.random(32).toString(cipher.enc.Base64);
         const psalt = cipher.lib.WordArray.random(32).toString(cipher.enc.Base64);
         fs.writeFileSync(`${storePath}/${data.account}.json`, JSON.stringify({
