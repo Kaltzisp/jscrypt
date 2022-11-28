@@ -7,6 +7,16 @@ window.api.on("secretKey", (event, data) => {
     secretKey = data;
 });
 
+window.api.on("accountList", (event, data) => {
+    const account = document.getElementById("account");
+    for (const i of data) {
+        const acc = i.replace(".json", "");
+        const node = document.createElement("option");
+        node.innerHTML = `<option value=${acc}>${acc}</option>`;
+        account.append(node);
+    }
+});
+
 class Field {
     constructor(id, type) {
         this.node = document.createElement("input");
@@ -66,12 +76,16 @@ function viewAccount() {
     unsetOptions();
     serviceLabel.innerText = "View credentials";
     infoText.innerHTML = "";
-    const account = new Field("account", "text").node;
+    window.api.send("getAccounts");
+    const account = document.createElement("select");
+    account.id = "account";
+    account.class = "field";
     infoText.append(account);
     account.focus();
-    document.getElementById("keyForm").onsubmit = () => {
-        window.api.send("getCredentials", { account: account.value, secretKey });
-        return false;
+    document.onkeydown = (e) => {
+        if (e.code === "Enter") {
+            window.api.send("getCredentials", { account: account.value, secretKey });
+        }
     };
 }
 

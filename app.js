@@ -75,6 +75,11 @@ app.whenReady().then(() => {
             });
         }
     });
+
+    io.on("getAccounts", () => {
+        const files = fs.readdirSync(storePath);
+        window.webContents.send("accountList", files);
+    });
 });
 
 app.on("window-all-closed", () => {
