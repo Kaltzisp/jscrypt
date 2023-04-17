@@ -12,4 +12,3 @@ Then to create the JSCrypt distributable:
 
 `npx electron-packager . jscrypt`
 
-You will need to create an empty directory located at `%userData%/jscrypt/Store/` to store saved passwords.
